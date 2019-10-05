@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
+import java.util.concurrent.TimeUnit;
+
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
@@ -35,6 +37,7 @@ public class Example3Activity extends AppCompatActivity {
         compositeDisposable.add(
                 footballPlayersOservervable
                         .subscribeOn(Schedulers.io())
+                        .delay(10000, TimeUnit.MILLISECONDS)
                         .observeOn(AndroidSchedulers.mainThread())
                         .filter(new Predicate<String>() {
                             @Override

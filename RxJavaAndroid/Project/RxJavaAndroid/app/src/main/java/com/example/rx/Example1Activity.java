@@ -34,8 +34,8 @@ public class Example1Activity extends AppCompatActivity {
 
         // Subscription
         footballPlayersObservable
-                .observeOn(Schedulers.io())
-                .subscribeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(footballPlayerObserver);
 
     }

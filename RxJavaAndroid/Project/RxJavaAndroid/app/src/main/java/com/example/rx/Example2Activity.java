@@ -34,8 +34,8 @@ public class Example2Activity extends AppCompatActivity {
 
         // Subscription
         footballPlayersObservable
-                .observeOn(Schedulers.io())
-                .subscribeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
                 .filter(new Predicate<String>() {
                     @Override
                     public boolean test(String s) throws Exception {
