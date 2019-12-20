@@ -45,8 +45,7 @@ public class MasterFragment extends Fragment implements LifecycleOwner, MasterAd
         RecyclerView recyclerView = getView().findViewById(R.id.recyclerview);
         mAdapter = new MasterAdapter();
         mAdapter.setListenner(this);
-        DividerItemDecoration dividerItemDecoration =
-                new DividerItemDecoration(recyclerView.getContext(), VERTICAL);
+        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(recyclerView.getContext(), VERTICAL);
         recyclerView.setAdapter(mAdapter);
         recyclerView.addItemDecoration(dividerItemDecoration);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));

@@ -20,16 +20,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.button_with_viewmodel:
-                startActivity(new Intent(MainActivity.this,
-                        CountNumberWithViewModelActivity.class));
+                startActivity(new Intent(MainActivity.this, CountNumberWithViewModelActivity.class));
                 break;
             case R.id.button_without_viewmodel:
-                startActivity(new Intent(MainActivity.this,
-                        CountNumberWithoutViewModelActivity.class));
+                startActivity(new Intent(MainActivity.this, CountNumberWithoutViewModelActivity.class));
                 break;
             case R.id.button_share_data:
-                startActivity(new Intent(MainActivity.this,
-                        ShareDataActivity.class));
+                startActivity(new Intent(MainActivity.this, ShareDataActivity.class));
                 break;
         }
     }
