@@ -5,7 +5,7 @@ import com.example.domain.model.Task
 import com.example.domain.repository.TaskRepository
 
 class TaskRepositoryImpl(
-    private val localDataSource: TaskRepository
+    private val localDataSource: TaskLocalDataSource
 ) : TaskRepository {
     override fun getTasks(): List<Task> = localDataSource.getTasks()
 

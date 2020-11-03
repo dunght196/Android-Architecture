@@ -12,7 +12,7 @@ data class TaskEntity (
     @ColumnInfo(name = FIELD_ID) val id: Long,
     @ColumnInfo(name = FIELD_TITLE) val title: String,
     @ColumnInfo(name = FIELD_IS_DONE) val isDone: Boolean
-) {
+) : EntityModel() {
     companion object {
         const val TABLE_NAME = "tbl_tasks"
         const val FIELD_ID = "id"

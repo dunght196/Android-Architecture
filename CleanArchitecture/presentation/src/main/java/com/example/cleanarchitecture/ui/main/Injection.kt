@@ -33,6 +33,12 @@ object Injection {
 
     fun inject(mainActivity: MainActivity) {
         activity = mainActivity
+        mainActivity.viewModel = TaskViewModelFactory(
+            getTaskUseCase,
+            createTaskUseCase,
+            itemMapper,
+            mainActivity
+        ).create(TaskViewModel::class.java)
     }
 
 }
