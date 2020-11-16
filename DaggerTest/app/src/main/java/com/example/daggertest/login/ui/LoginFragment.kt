@@ -42,7 +42,8 @@ class LoginFragment : Fragment(),
         super.onViewCreated(view, savedInstanceState)
 
         btn_login.setOnClickListener {
-            presenter.login("dunght", "12345678")
+//            presenter.login("dunght", "12345678")
+            presenter.getListMoviePopular()
         }
 
     }
