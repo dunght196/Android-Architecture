@@ -21,8 +21,8 @@ class HomeFragment : Fragment(), HomeView {
     lateinit var presenter: HomePresenter
 
     override fun onAttach(context: Context?) {
-        super.onAttach(context)
         AndroidSupportInjection.inject(this)
+        super.onAttach(context)
     }
 
     override fun onCreateView(
