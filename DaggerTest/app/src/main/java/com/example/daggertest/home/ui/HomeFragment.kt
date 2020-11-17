@@ -1,32 +1,28 @@
-package com.example.daggertest.login.ui
+package com.example.daggertest.home.ui
 
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.example.daggertest.login.presentation.LoginPresenter
-import com.example.daggertest.login.presentation.LoginView
 import com.example.daggertest.R
+import com.example.daggertest.home.presentation.HomePresenter
+import com.example.daggertest.home.presentation.HomeView
+import com.example.daggertest.network.respons.MoviePopular
+import com.example.daggertest.util.extensions.ui
 import dagger.android.support.AndroidSupportInjection
-import kotlinx.android.synthetic.main.fragment_login.*
 import javax.inject.Inject
 
-class LoginFragment : Fragment(),
-    LoginView {
+class HomeFragment : Fragment(), HomeView {
 
     @Inject
-    lateinit var presenter: LoginPresenter
+    lateinit var presenter: HomePresenter
 
     override fun onAttach(context: Context?) {
         super.onAttach(context)
         AndroidSupportInjection.inject(this)
-    }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
     }
 
     override fun onCreateView(
@@ -34,24 +30,19 @@ class LoginFragment : Fragment(),
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_login, container, false)
+        val view = inflater.inflate(R.layout.fragment_home, container, false)
         return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        btn_login.setOnClickListener {
-            presenter.login("dunght", "12345678")
-        }
+        presenter.getListMoviePopular()
 
     }
 
-    override fun checkLogin(status: String) {
-        if(status == "success") {
-            Log.d("dz196", "Status: $status")
+    override fun getListMoviesPopular(items: MoviePopular) {
+        ui {
+            Toast.makeText(context, items.total_results.toString(), Toast.LENGTH_SHORT).show()
         }
     }
-
-
 }

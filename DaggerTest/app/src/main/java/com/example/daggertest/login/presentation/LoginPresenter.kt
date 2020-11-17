@@ -26,11 +26,4 @@ class LoginPresenter @Inject constructor(
             }
     }
 
-    fun getListMoviePopular() {
-        GlobalScope.launch(Dispatchers.IO + strategy.jobs) {
-            apiInterface.getMoviePopular()?.let { movies ->
-                Log.d("dz196", "Total: " + movies.total_results)
-            }
-        }
-    }
 }

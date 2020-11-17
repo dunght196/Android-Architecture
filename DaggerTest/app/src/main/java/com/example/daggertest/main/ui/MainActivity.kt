@@ -6,6 +6,7 @@ import com.example.daggertest.login.ui.LoginFragment
 import com.example.daggertest.main.presentation.MainPresenter
 import com.example.daggertest.main.presentation.MainView
 import com.example.daggertest.R
+import com.example.daggertest.home.ui.HomeFragment
 import dagger.android.AndroidInjection
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
@@ -17,6 +18,7 @@ class MainActivity : AppCompatActivity(), HasAndroidInjector,
 
     @Inject
     lateinit var presenter: MainPresenter
+
     @Inject
     lateinit var fragmentDispatchingAndroidInjector: DispatchingAndroidInjector<Any>
 
@@ -30,7 +32,7 @@ class MainActivity : AppCompatActivity(), HasAndroidInjector,
         supportFragmentManager.beginTransaction()
             .add(
                 R.id.fragment_holder,
-                LoginFragment()
+                HomeFragment()
             )
             .commit()
 

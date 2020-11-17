@@ -7,7 +7,6 @@ import dagger.android.ContributesAndroidInjector
 
 @Module
 abstract class LoginFragmentProvider {
-
     @ContributesAndroidInjector(modules = [LoginFragmentModule::class])
     @PerFragment
     abstract fun provideLoginFragment(): LoginFragment
