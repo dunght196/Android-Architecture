@@ -18,7 +18,7 @@ class HomePresenter @Inject constructor(
     fun getListMoviePopular() = runBlocking {
         launch(Dispatchers.IO + strategy.jobs) {
             apiInterface.getMoviePopular()?.let { movies ->
-                view.getListMoviesPopular(movies)
+                view.getListMoviesPopular(movies.total_results.toString())
             }
         }
     }

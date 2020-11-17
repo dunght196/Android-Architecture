@@ -13,8 +13,7 @@ import javax.inject.Inject
 
 class LoginPresenter @Inject constructor(
     private val view: LoginView,
-    private val apiInterface: ApiInterface,
-    private val strategy: CancelStrategy
+    private val apiInterface: ApiInterface
 ) {
 
     fun login(userNam: String, passWord: String) {
