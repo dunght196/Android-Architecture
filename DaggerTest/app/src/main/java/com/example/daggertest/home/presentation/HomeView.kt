@@ -4,6 +4,6 @@ import com.example.daggertest.network.respons.MoviePopular
 
 interface HomeView {
 
-    fun getListMoviesPopular(items: MoviePopular)
+    fun getListMoviesPopular(items: String?)
 
 }

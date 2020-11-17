@@ -2,6 +2,6 @@ package com.example.daggertest.login.presentation
 
 interface LoginView {
 
-    fun checkLogin(status: String)
+    fun checkLogin(status: String?)
 
 }

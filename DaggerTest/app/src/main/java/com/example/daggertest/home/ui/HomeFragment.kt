@@ -13,16 +13,16 @@ import com.example.daggertest.home.presentation.HomeView
 import com.example.daggertest.network.respons.MoviePopular
 import com.example.daggertest.util.extensions.ui
 import dagger.android.support.AndroidSupportInjection
+import kotlinx.android.synthetic.main.fragment_home.*
 import javax.inject.Inject
 
 class HomeFragment : Fragment(), HomeView {
-
     @Inject
     lateinit var presenter: HomePresenter
 
     override fun onAttach(context: Context?) {
-        super.onAttach(context)
         AndroidSupportInjection.inject(this)
+        super.onAttach(context)
     }
 
     override fun onCreateView(
@@ -30,19 +30,17 @@ class HomeFragment : Fragment(), HomeView {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_home, container, false)
-        return view
+        return inflater.inflate(R.layout.fragment_home, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         presenter.getListMoviePopular()
-
     }
 
-    override fun getListMoviesPopular(items: MoviePopular) {
+    override fun getListMoviesPopular(items: String?) {
         ui {
-            Toast.makeText(context, items.total_results.toString(), Toast.LENGTH_SHORT).show()
+            tv.text = items
         }
     }
 }

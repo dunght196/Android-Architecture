@@ -43,7 +43,4 @@ class MainActivity : AppCompatActivity(), HasAndroidInjector,
         return fragmentDispatchingAndroidInjector
     }
 
-    override fun test() {
-    }
-
 }

@@ -14,9 +14,7 @@ import dagger.android.support.AndroidSupportInjection
 import kotlinx.android.synthetic.main.fragment_login.*
 import javax.inject.Inject
 
-class LoginFragment : Fragment(),
-    LoginView {
-
+class LoginFragment : Fragment(), LoginView {
     @Inject
     lateinit var presenter: LoginPresenter
 
@@ -25,17 +23,12 @@ class LoginFragment : Fragment(),
         AndroidSupportInjection.inject(this)
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_login, container, false)
-        return view
+        return inflater.inflate(R.layout.fragment_login, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -47,7 +40,7 @@ class LoginFragment : Fragment(),
 
     }
 
-    override fun checkLogin(status: String) {
+    override fun checkLogin(status: String?) {
         if(status == "success") {
             Log.d("dz196", "Status: $status")
         }
