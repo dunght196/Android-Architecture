@@ -1,13 +1,10 @@
 package com.example.daggertest.network
 
 import com.example.daggertest.network.request.LoginBody
-import com.example.daggertest.network.respons.MoviePopular
+import com.example.daggertest.network.response.MoviePopularResponse
 import com.example.daggertest.network.response.LoginResponse
 import io.reactivex.Observable
-import retrofit2.http.Body
-import retrofit2.http.Field
-import retrofit2.http.GET
-import retrofit2.http.POST
+import retrofit2.http.*
 
 interface ApiInterface {
 
@@ -17,6 +14,6 @@ interface ApiInterface {
     ): Observable<LoginResponse>
 
     @GET("3/movie/popular")
-    suspend  fun getMoviePopular() : MoviePopular
+    suspend fun getMoviePopular(@Query("page") page: Int?): MoviePopularResponse
 
 }
