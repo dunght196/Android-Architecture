@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "595655645255",
+    "project_id": "demoaudio-2c5f4",
+    "storage_bucket": "demoaudio-2c5f4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:595655645255:android:910d71b6a6956a12817962",
+        "android_client_info": {
+          "package_name": "com.example.daggertest"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "595655645255-bgrlccl10r81241kmk7shgat26joc6i1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCF9lRavsnuasPla8MFcIliJN8NDpcozYo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "595655645255-bgrlccl10r81241kmk7shgat26joc6i1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
