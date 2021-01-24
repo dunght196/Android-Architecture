@@ -60,5 +60,6 @@ dependencies {
     // Kotlin + coroutines
     implementation "androidx.work:work-runtime-ktx:$work_version"
 
+    implementation 'com.jakewharton.timber:timber:4.7.1'
 
 }
