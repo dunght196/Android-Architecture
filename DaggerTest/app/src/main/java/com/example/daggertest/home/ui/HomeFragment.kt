@@ -8,9 +8,11 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DividerItemDecoration
 import com.example.daggertest.R
+import com.example.daggertest.base.BaseRecyclerViewAdapter
 import com.example.daggertest.home.presentation.HomePresenter
 import com.example.daggertest.home.presentation.HomeView
 import com.example.daggertest.network.response.MoviePopularInfo
+import com.example.daggertest.recyclerview.EndlessRecyclerOnScrollListener
 import com.example.daggertest.util.extensions.ui
 import dagger.android.support.AndroidSupportInjection
 import kotlinx.android.synthetic.main.fragment_home.*
@@ -40,20 +42,34 @@ class HomeFragment : Fragment(), HomeView {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initView()
-        presenter.getListMoviePopular(page)
+        getData()
     }
 
     private fun initView() {
         adapterMovie = MoviePopularAdapter()
         rv_movies.adapter = adapterMovie
         rv_movies.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
+
+        rv_movies.addOnScrollListener(object : EndlessRecyclerOnScrollListener() {
+            override fun onBottom() {
+                page++
+                getData()
+            }
+        })
+    }
+
+    fun getData() {
+        presenter.getListMoviePopular(page)
     }
 
     override fun getListMoviesPopular(items: MutableList<MoviePopularInfo>?) {
         ui {
             items?.let {
                 if (page == 1) {
-                    adapterMovie?.appendData(items)
+                    adapterMovie?.prependData(it)
+                } else {
+                    adapterMovie?.setFooterState(BaseRecyclerViewAdapter.LOADING)
+                    adapterMovie?.appendData(it)
                 }
             }
         }
